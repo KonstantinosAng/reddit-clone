@@ -1,23 +1,39 @@
-# Next.js + Tailwind CSS Example
+# Reddit clone
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+A simple reddit clone using [next js](https://nextjs.org/), [next auth](https://next-auth.js.org/), [tailwindcss](https://tailwindcss.com/), [heroicons](https://heroicons.com/), [supabase](https://supabase.com/). Based on this [tutorial](https://www.youtube.com/watch?v=O0AhmAVzOo4).
 
-## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Demo
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+<div align="center">
+  <h1><a href="https://constantine.dev:8080/reddit"> DEMO </a></h1>
+</div>
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Installation
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
+yarn install
+
+or
+
+npm install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+create a .env.local file with these two variables
+
+```bash
+REDDIT_CLIENT_ID=
+REDDIT_CLIENT_SECRET=
+```
+
+fill in the values by creating an app from your reddit account.
+
+## Run
+
+```bash
+yarn start
+
+or
+
+npm start
+```
