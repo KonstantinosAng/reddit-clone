@@ -36,3 +36,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# stepzen and Supabase credentials
+stepzen/config.yaml

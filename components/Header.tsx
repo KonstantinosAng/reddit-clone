@@ -10,7 +10,7 @@ const Header = () => {
   const { data: session } = useSession()
   return (
     <div className="sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm">
-      <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer">
+      <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer" onClick={() => window.location.reload()}>
         <Image objectFit="contain" src={Logo} layout="fill" priority />
       </div>
       <div className="xl:miw-w-[300px] mx-7 flex items-center">
