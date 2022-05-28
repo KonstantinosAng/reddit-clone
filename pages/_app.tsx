@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <SessionProvider session={session}>
         <Toaster />
         <div className="h-screen">
-          <Header />
           <Component {...pageProps} />
         </div>
       </SessionProvider>

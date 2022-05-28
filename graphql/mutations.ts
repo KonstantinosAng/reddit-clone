@@ -24,4 +24,16 @@ const CREATE_SUBREDDIT = gql`
   }
 `
 
-export { CREATE_POST, CREATE_SUBREDDIT }
+const CREATE_COMMENT = gql`
+  mutation CreateComment($post_id: ID!, $username: String!, $text: String!) {
+    createComment(post_id: $post_id, username: $username, text: $text) {
+      post_id
+      text
+      username
+      id
+      created_at
+    }
+  }
+`
+
+export { CREATE_POST, CREATE_SUBREDDIT, CREATE_COMMENT }

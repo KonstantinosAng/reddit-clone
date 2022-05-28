@@ -5,14 +5,17 @@ import User from "@assets/user.png"
 import { ChevronDownIcon, HomeIcon, SearchIcon, MenuIcon } from "@heroicons/react/solid"
 import { BellIcon, ChatIcon, GlobeIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon } from "@heroicons/react/outline"
 import { signIn, signOut, useSession } from "next-auth/react"
+import Link from "next/link"
 
 const Header = () => {
   const { data: session } = useSession()
   return (
-    <div className="sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm">
-      <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer" onClick={() => window.location.reload()}>
-        <Image objectFit="contain" src={Logo} layout="fill" priority />
-      </div>
+    <div className="sticky top-0 z-50 flex items-center bg-white px-4 py-2 shadow-sm">
+      <Link href="/">
+        <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer">
+          <Image objectFit="contain" src={Logo} layout="fill" priority />
+        </div>
+      </Link>
       <div className="xl:miw-w-[300px] mx-7 flex items-center">
         <HomeIcon className="h-5 w-5" />
         <p className="ml-2 hidden flex-1 lg:inline">Home</p>

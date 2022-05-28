@@ -15,7 +15,11 @@ type FormData = {
   subreddit: string
 }
 
-const PostBox = () => {
+type Props = {
+  subreddit?: string
+}
+
+const PostBox = ({ subreddit }: Props) => {
   const { data: session } = useSession()
   const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false)
   const {
@@ -27,7 +31,7 @@ const PostBox = () => {
   } = useForm<FormData>()
 
   const [createPost] = useMutation(CREATE_POST, {
-    refetchQueries: [GET_ALL_POSTS, "getPostList"],
+    refetchQueries: [GET_ALL_POSTS, "GetPostList"],
   })
 
   const [getSubreddit] = useLazyQuery(GET_SUBREDDIT_BY_TOPIC)
@@ -42,23 +46,23 @@ const PostBox = () => {
       const { data } = await getSubreddit({
         query: GET_SUBREDDIT_BY_TOPIC,
         variables: {
-          topic: formData.subreddit,
+          topic: subreddit || formData.subreddit,
         },
         onError: error => console.error(error),
       })
       const subredditExists = data?.getSubredditListByTopic.length > 0
       if (!subredditExists) {
-        const { data } = await createSubreddit({
+        await createSubreddit({
           variables: {
             topic: formData.subreddit,
           },
           onError: e => console.error(e),
-          onCompleted: async data => {
+          onCompleted: async completedData => {
             await createPost({
               variables: {
                 body: formData.postBody,
                 image,
-                subreddit_id: data?.insertSubreddit?.id,
+                subreddit_id: completedData?.insertSubreddit?.id,
                 title: formData.postTitle,
                 username: session?.user?.name ?? "",
               },
@@ -91,15 +95,17 @@ const PostBox = () => {
     }
   })
 
+  const placeholder = subreddit ? `Created a post in r/${subreddit}` : "Create a post by entering a title"
+
   return (
-    <form onSubmit={onSubmit} className="sticky top-16 z-50 rounded-md border border-gray-300 bg-white p-2">
+    <form onSubmit={onSubmit} className="sticky top-20 z-50 rounded-md border border-gray-300 bg-white p-2">
       <div className="flex items-center space-x-3">
         <Avatar />
         <input
           {...register("postTitle", { required: true })}
           type="text"
           className="flex-1 rounded-md bg-gray-50 p-2 pl-5 outline-none"
-          placeholder={session ? `Create a post by entering a title` : "Sign in to post"}
+          placeholder={session ? placeholder : "Sign in to post"}
           disabled={!session}
         />
         <PhotographIcon onClick={() => setImageBoxOpen(!imageBoxOpen)} className={`h-6 text-gray-300 ${imageBoxOpen && "text-blue-300"}`} />
@@ -111,15 +117,17 @@ const PostBox = () => {
             <p className="min-w-[90px]">Body:</p>
             <input className="p-p2 m-2 flex-1 bg-blue-50 outline-none" {...register("postBody")} type="text" placeholder="Text (optional)" />
           </div>
-          <div className="flex items-center px-2">
-            <p className="min-w-[90px]">Subreddit:</p>
-            <input
-              className="p-p2 m-2 flex-1 bg-blue-50 outline-none"
-              {...register("subreddit", { required: true })}
-              type="text"
-              placeholder="i.e. reactjs"
-            />
-          </div>
+          {!subreddit && (
+            <div className="flex items-center px-2">
+              <p className="min-w-[90px]">Subreddit:</p>
+              <input
+                className="p-p2 m-2 flex-1 bg-blue-50 outline-none"
+                {...register("subreddit", { required: true })}
+                type="text"
+                placeholder="i.e. reactjs"
+              />
+            </div>
+          )}
           {imageBoxOpen && (
             <div className="flex items-center px-2">
               <p className="min-w-[90px]">Image URL:</p>
