@@ -23,7 +23,6 @@ const Home: NextPage = () => {
         <Head>
           <title>Reddit 2.0 Clone</title>
           <link rel="shortcut icon" type="image/x-icon" href={favicon.src} />
-          <base href="/reddit" />
         </Head>
         <PostBox />
         <div className="mx-4 flex">
