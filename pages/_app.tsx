@@ -8,7 +8,7 @@ import { Toaster } from "react-hot-toast"
 function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
   return (
     <ApolloProvider client={client}>
-      <SessionProvider session={session}>
+      <SessionProvider session={session} basePath="/reddit/api/auth">
         <Toaster />
         <div className="h-screen">
           <Component {...pageProps} />
