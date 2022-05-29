@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   })
 
   return (
-    <div className="w-screen">
+    <div className="w-screen overflow-x-hidden">
       <Header />
       <div className="my-7 mx-auto max-w-5xl">
         <Head>
