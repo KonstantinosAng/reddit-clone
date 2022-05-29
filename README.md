@@ -66,3 +66,17 @@ or
 
 npm dev
 ```
+
+## Examples
+
+<p align="center">
+  <img scr="./img/img1.jpeg"/>
+</p>
+
+<p align="center">
+  <img scr="./img/img2.jpeg"/>
+</p>
+
+<p align="center">
+  <img scr="./img/img3.jpeg"/>
+</p>
