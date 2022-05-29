@@ -10,6 +10,28 @@ const GET_SUBREDDIT_BY_TOPIC = gql`
   }
 `
 
+const GET_SUBREDDIT_LIST_WITH_LIMIT = gql`
+  query GetSubredditListWithLimit($limit: Int!) {
+    getSubredditListWithLimit(limit: $limit) {
+      id
+      created_at
+      topic
+    }
+  }
+`
+
+const GET_ALL_VOTES_BY_POST_ID = gql`
+  query GetAllVotesByPostId($post_id: ID!) {
+    getAllVotesByPostId(post_id: $post_id) {
+      id
+      created_at
+      post_id
+      upvote
+      username
+    }
+  }
+`
+
 const GET_ALL_POSTS = gql`
   query GetPostList {
     getPostList {
@@ -109,4 +131,4 @@ const GET_POST_BY_POST_ID = gql`
   }
 `
 
-export { GET_SUBREDDIT_BY_TOPIC, GET_ALL_POSTS, GET_ALL_POSTS_BY_TOPIC, GET_POST_BY_POST_ID }
+export { GET_SUBREDDIT_BY_TOPIC, GET_ALL_POSTS, GET_ALL_POSTS_BY_TOPIC, GET_POST_BY_POST_ID, GET_ALL_VOTES_BY_POST_ID, GET_SUBREDDIT_LIST_WITH_LIMIT }

@@ -17,9 +17,10 @@ type FormData = {
 
 type Props = {
   subreddit?: string
+  className?: string
 }
 
-const PostBox = ({ subreddit }: Props) => {
+const PostBox = ({ subreddit, className }: Props) => {
   const { data: session } = useSession()
   const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false)
   const {
@@ -98,13 +99,13 @@ const PostBox = ({ subreddit }: Props) => {
   const placeholder = subreddit ? `Created a post in r/${subreddit}` : "Create a post by entering a title"
 
   return (
-    <form onSubmit={onSubmit} className="sticky top-20 z-50 rounded-md border border-gray-300 bg-white p-2">
+    <form onSubmit={onSubmit} className={`sticky top-20 z-50 mx-4 rounded-md border border-gray-300 bg-white p-2 ${className ?? ""}`}>
       <div className="flex items-center space-x-3">
         <Avatar />
         <input
           {...register("postTitle", { required: true })}
           type="text"
-          className="flex-1 rounded-md bg-gray-50 p-2 pl-5 outline-none"
+          className="flex-1 overflow-x-hidden text-ellipsis rounded-md bg-gray-50 p-2 pl-5 outline-none"
           placeholder={session ? placeholder : "Sign in to post"}
           disabled={!session}
         />

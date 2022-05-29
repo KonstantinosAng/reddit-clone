@@ -24,6 +24,18 @@ const CREATE_SUBREDDIT = gql`
   }
 `
 
+const CREATE_VOTE = gql`
+  mutation insertVote($post_id: ID!, $username: String!, $upvote: Boolean!) {
+    insertVote(post_id: $post_id, username: $username, upvote: $upvote) {
+      id
+      created_at
+      post_id
+      upvote
+      username
+    }
+  }
+`
+
 const CREATE_COMMENT = gql`
   mutation CreateComment($post_id: ID!, $username: String!, $text: String!) {
     createComment(post_id: $post_id, username: $username, text: $text) {
@@ -36,4 +48,4 @@ const CREATE_COMMENT = gql`
   }
 `
 
-export { CREATE_POST, CREATE_SUBREDDIT, CREATE_COMMENT }
+export { CREATE_POST, CREATE_SUBREDDIT, CREATE_COMMENT, CREATE_VOTE }

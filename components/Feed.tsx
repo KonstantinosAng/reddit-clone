@@ -5,11 +5,11 @@ import Post from "./Post"
 import { Jelly } from "@uiball/loaders"
 
 type Props = {
-  topic: string
+  topic?: string
 }
 
 const Feed = ({ topic }: Props) => {
-  const { data, error, loading } = !topic
+  const { data, loading } = !topic
     ? useQuery(GET_ALL_POSTS)
     : useQuery(GET_ALL_POSTS_BY_TOPIC, {
         variables: {
