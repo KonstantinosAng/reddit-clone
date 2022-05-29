@@ -70,13 +70,13 @@ npm dev
 ## Examples
 
 <p align="center">
-  <img scr="./img/img1.jpeg"/>
+  <img scr="img/img1.jpeg" alt="login-screen"/>
 </p>
 
 <p align="center">
-  <img scr="./img/img2.jpeg"/>
+  <img scr="img/img2.jpeg" alt="login-screen"/>
 </p>
 
 <p align="center">
-  <img scr="./img/img3.jpeg"/>
+  <img scr="img/img3.jpeg" alt="login-screen"/>
 </p>
