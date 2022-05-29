@@ -1,5 +1,6 @@
 {
   "private": true,
+  "homepage": "/reddit",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
