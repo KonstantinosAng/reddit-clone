@@ -70,13 +70,20 @@ npm dev
 ## Examples
 
 <p align="center">
-  <img scr="https://github.com/KonstantinosAng/reddit-clone/img/img1.png" alt="home-screen"/>
+
+  ![Home Screen](./img/img1.png)
+
 </p>
 
 <p align="center">
-  <img scr="https://github.com/KonstantinosAng/reddit-clone/img/img2.png" alt="post-screen"/>
+  
+  ![Post Screen](./img/img2.png)
+
 </p>
 
 <p align="center">
-  <img scr="https://github.com/KonstantinosAng/reddit-clone/img/img3.png" alt="subreddit-screen"/>
+  
+  ![Subreddit Screen](./img/img3.png)
+
 </p>
+
