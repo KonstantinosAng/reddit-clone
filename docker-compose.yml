@@ -1,0 +1,15 @@
+version: "2.2"
+services:
+  reddit:
+    # network_mode: "host"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: reddit
+    container_name: reddit
+    restart: always
+    ports:
+      - 1235:3000
+    # environment:
+      # env_file:
+      #   - ./.env
