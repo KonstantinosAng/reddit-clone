@@ -3,7 +3,7 @@
 module.exports = {
   reactStrictMode: true,
   productionBrowserSourceMaps: false,
-  basePath: "/",
+  basePath: "",
   compress: true,
   images: {
     domains: ["avatars.dicebear.com"],
