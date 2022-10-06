@@ -3,7 +3,7 @@
 module.exports = {
   reactStrictMode: true,
   productionBrowserSourceMaps: false,
-  basePath: "/reddit",
+  basePath: "/",
   compress: true,
   images: {
     domains: ["avatars.dicebear.com"],
