@@ -86,4 +86,3 @@ npm dev
   ![Subreddit Screen](./img/img3.png)
 
 </p>
-
