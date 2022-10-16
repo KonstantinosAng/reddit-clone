@@ -36,7 +36,7 @@ const Header = () => {
         <PlusIcon className="icon" />
         <SpeakerphoneIcon className="icon" />
       </div>
-      <div className="ml-2 flex items-center sm:ml-5 lg:hidden">
+      <div className="ml-2 flex items-center sm:ml-5 lg:hidden" onClick={() => (session ? signOut() : signIn())}>
         <MenuIcon className="icon" />
       </div>
       <div
